@@ -183,6 +183,12 @@ html { scrollbar-color: var(--navy-700) var(--ink); }
   overflow: hidden;
 }
 .video-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; }
+.vsl-video { display: none; position: absolute; inset: 0; width: 100%; height: 100%; background: #000; object-fit: contain; }
+.video-frame.is-playing { aspect-ratio: 16 / 9; }
+.video-frame.is-playing .video-poster,
+.video-frame.is-playing .play,
+.video-frame.is-playing::after { display: none; }
+.video-frame.is-playing .vsl-video { display: block; }
 .video-frame::after {
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background: linear-gradient(0deg, rgba(6, 10, 23, 0.82) 0%, rgba(6, 10, 23, 0) 38%);

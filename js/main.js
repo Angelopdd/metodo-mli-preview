@@ -8,7 +8,6 @@
   var toast = document.querySelector("[data-toast]");
   var toastTimer;
   var messages = {
-    video: "Protótipo: o vídeo da VSL entra neste espaço após a aprovação.",
     checkout: "Protótipo: este botão será ligado ao checkout depois da aprovação."
   };
   function showToast(text) {
@@ -18,16 +17,33 @@
     clearTimeout(toastTimer);
     toastTimer = setTimeout(function () { toast.classList.remove("is-on"); }, 3600);
   }
+  /* Vídeo da VSL: só toca depois de um clique, com som e controles nativos */
+  var frame = document.querySelector("[data-vsl]");
+  var vsl = frame && frame.querySelector("video");
+  function startVsl() {
+    if (!frame || !vsl) return;
+    frame.classList.add("is-playing");
+    var p = vsl.play();
+    if (p && p.catch) p.catch(function () { /* os controles ficam visíveis para o visitante tocar */ });
+  }
+  if (vsl) {
+    vsl.addEventListener("error", function () {
+      frame.classList.remove("is-playing");
+      showToast("Não foi possível carregar o vídeo agora. Tente novamente em instantes.");
+    }, true);
+    var playBtn = frame.querySelector("[data-vsl-play]");
+    if (playBtn) playBtn.addEventListener("click", startVsl);
+  }
+
   document.addEventListener("click", function (e) {
     var el = e.target.closest("[data-demo]");
     if (!el) return;
+    e.preventDefault();
     var kind = el.getAttribute("data-demo");
-    if (kind === "video" && el.tagName === "A") {
-      // rola até o vídeo e avisa
-      e.preventDefault();
+    if (kind === "video") {
       document.getElementById("video").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
-    } else {
-      e.preventDefault();
+      startVsl();
+      return;
     }
     showToast(messages[kind] || "Protótipo: ação demonstrativa.");
   });
