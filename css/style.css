@@ -672,8 +672,10 @@ section h2 {
   .btn-lg { font-size: 0.95rem; letter-spacing: 0; padding-inline: 1.1em; }
   .hero-actions { gap: 10px; }
   .ticker li { padding: 13px 20px; font-size: 0.82rem; }
-  .play { left: 12px; bottom: 12px; padding-right: 16px; }
-  .play-label { font-size: 0.8rem; }
+  .play { left: 12px; bottom: 10px; padding: 5px 16px 5px 5px; gap: 10px; }
+  .play-disc { width: 38px; height: 38px; }
+  .play-label { font-size: 0.78rem; }
+  .play-label small { display: none; }
   .video-poster { object-position: 50% 45%; }
   .ledger-rows .row { flex-direction: column; align-items: flex-start; gap: 8px; }
   .mini-flow { flex-direction: column; align-items: flex-start; gap: 10px; }
