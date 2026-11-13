@@ -17,32 +17,17 @@
     clearTimeout(toastTimer);
     toastTimer = setTimeout(function () { toast.classList.remove("is-on"); }, 3600);
   }
-  /* Vídeo da VSL: só toca depois de um clique, com som e controles nativos */
-  var frame = document.querySelector("[data-vsl]");
-  var vsl = frame && frame.querySelector("video");
-  function startVsl() {
-    if (!frame || !vsl) return;
-    frame.classList.add("is-playing");
-    var p = vsl.play();
-    if (p && p.catch) p.catch(function () { /* os controles ficam visíveis para o visitante tocar */ });
-  }
-  if (vsl) {
-    vsl.addEventListener("error", function () {
-      frame.classList.remove("is-playing");
-      showToast("Não foi possível carregar o vídeo agora. Tente novamente em instantes.");
-    }, true);
-    var playBtn = frame.querySelector("[data-vsl-play]");
-    if (playBtn) playBtn.addEventListener("click", startVsl);
-  }
-
   document.addEventListener("click", function (e) {
     var el = e.target.closest("[data-demo]");
     if (!el) return;
     e.preventDefault();
     var kind = el.getAttribute("data-demo");
     if (kind === "video") {
+      /* leva ao vídeo e, se ainda estiver sem som, liga o som (o clique do visitante libera o áudio) */
       document.getElementById("video").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
-      startVsl();
+      var frame = document.querySelector("[data-vsl]");
+      var somBtn = frame && frame.querySelector("[data-vsl-som]");
+      if (somBtn && !frame.hasAttribute("data-iniciado") && !somBtn.hidden) somBtn.click();
       return;
     }
     showToast(messages[kind] || "Protótipo: ação demonstrativa.");

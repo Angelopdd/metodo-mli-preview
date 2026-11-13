@@ -176,48 +176,94 @@ html { scrollbar-color: var(--navy-700) var(--ink); }
   filter: blur(20px);
 }
 .video-frame {
-  position: relative; aspect-ratio: 5 / 4;
+  position: relative; aspect-ratio: 16 / 9;
   border-radius: var(--radius-lg);
   background: var(--navy-900);
   box-shadow: inset 0 0 0 1px var(--line-strong), 0 40px 70px -34px rgba(0, 0, 0, 0.9);
   overflow: hidden;
 }
 .video-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; }
-.vsl-video { display: none; position: absolute; inset: 0; width: 100%; height: 100%; background: #000; object-fit: contain; }
-.video-frame.is-playing { aspect-ratio: 16 / 9; }
-.video-frame.is-playing .video-poster,
-.video-frame.is-playing .play,
-.video-frame.is-playing::after { display: none; }
-.video-frame.is-playing .vsl-video { display: block; }
+/* Player da VSL: quadro 16:9 do próprio vídeo. Capa até o primeiro quadro; sem controles nativos. */
+.vsl-video {
+  position: absolute; inset: 0; width: 100%; height: 100%; display: block; background: #000; object-fit: contain;
+  pointer-events: none; /* nenhum clique chega ao <video>: não há pausa nem controles */
+}
+.vsl-video::-webkit-media-controls { display: none !important; }
+.vsl-video::-webkit-media-controls-enclosure { display: none !important; }
+.video-frame.is-on .video-poster { display: none; }
 .video-frame::after {
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background: linear-gradient(0deg, rgba(6, 10, 23, 0.82) 0%, rgba(6, 10, 23, 0) 38%);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
   border-radius: inherit;
 }
+.video-frame[data-estado="mudo"]::after { background: rgba(6, 10, 23, 0.38); }
+.video-frame[data-iniciado]::after { background: none; }
+
+/* Único controle: som. Antes do primeiro clique é o botão grande no centro; depois vira um botão redondo no canto. */
 .play {
-  position: absolute; left: 16px; bottom: 16px; z-index: 2;
-  display: inline-flex; align-items: center; gap: 12px;
-  padding: 7px 20px 7px 7px; border: 0; border-radius: 999px; cursor: pointer;
+  position: absolute; left: 50%; top: 50%; translate: -50% -50%; z-index: 3;
+  display: inline-flex; align-items: center; gap: 12px; max-width: calc(100% - 24px);
+  padding: 7px 22px 7px 7px; border: 0; border-radius: 999px; cursor: pointer;
   background: var(--yellow); color: var(--on-yellow); text-align: left;
   box-shadow: 0 16px 28px -12px rgba(0, 0, 0, 0.85);
   transition: transform 0.4s var(--ease), background-color 0.2s;
 }
+.play[hidden] { display: none; }
 .play:hover { transform: translateY(-2px); background: var(--yellow-hot); }
 .play:active { transform: scale(0.98); }
+.play:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 3px; }
 .play-disc {
   position: relative; display: grid; place-items: center; flex: none;
   width: 48px; height: 48px; border-radius: 50%; background: var(--on-yellow); color: var(--yellow);
 }
-.play-disc .ic { width: 20px; height: 20px; margin-left: 2px; }
+.play-disc .ic { width: 22px; height: 22px; grid-area: 1 / 1; }
+.ic-on, .ic-play { display: none; }
+.video-frame[data-som="on"] .ic-on { display: block; }
+.video-frame[data-som="on"] .ic-off { display: none; }
+.video-frame[data-estado="bloqueado"] .ic-play { display: block; margin-left: 2px; }
+.video-frame[data-estado="bloqueado"] .ic-off { display: none; }
 .play-ring {
   position: absolute; inset: -4px; border-radius: 50%;
   box-shadow: 0 0 0 2px rgba(10, 20, 51, 0.55);
   animation: ring 2.6s var(--ease) infinite;
 }
 @keyframes ring { 0% { transform: scale(0.92); opacity: 0.9; } 100% { transform: scale(1.4); opacity: 0; } }
-.play-label { display: flex; flex-direction: column; font: 800 0.88rem/1.1 var(--display); font-stretch: 106%; text-transform: uppercase; letter-spacing: 0.02em; }
-.play-label small { font: 600 0.72rem/1.2 var(--body); text-transform: none; letter-spacing: 0; color: var(--on-yellow-2); margin-top: 2px; }
+.play-label { display: flex; flex-direction: column; white-space: nowrap; font: 800 0.9rem/1.1 var(--display); font-stretch: 106%; text-transform: uppercase; letter-spacing: 0.02em; }
+.play-label small { font: 600 0.72rem/1.2 var(--body); text-transform: none; letter-spacing: 0; color: var(--on-yellow-2); margin-top: 3px; }
+
+/* Depois do primeiro clique: só o ícone de som, no canto, acima da barra */
+.video-frame[data-iniciado] .play {
+  left: 14px; top: auto; bottom: 26px; translate: none; padding: 0; width: 46px; height: 46px; justify-content: center;
+}
+.video-frame[data-iniciado] .play-disc { width: 100%; height: 100%; background: transparent; color: var(--on-yellow); }
+.video-frame[data-iniciado] .play-ring,
+.video-frame[data-iniciado] .play-label { display: none; }
+
+/* Barra de progresso: só leitura, nunca recebe clique */
+.vsl-barra {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 4; height: 10px; background: rgba(0, 0, 0, 0.82);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  pointer-events: none; opacity: 0; transition: opacity 0.3s;
+}
+.vsl-barra i {
+  display: block; width: 100%; height: 100%; transform: scaleX(0); transform-origin: 0 50%; will-change: transform;
+  background: linear-gradient(90deg, var(--blue) 0%, var(--blue-soft) 55%, #E6EEFF 100%); border-radius: 0 6px 6px 0;
+  box-shadow: 0 0 12px 2px var(--blue-glow), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.video-frame.is-on .vsl-barra { opacity: 1; }
+
+.vsl-erro {
+  position: absolute; inset: 0; z-index: 5; display: grid; place-content: center; justify-items: center; gap: 14px; padding: 24px; text-align: center;
+  background: rgba(6, 10, 23, 0.94);
+}
+.vsl-erro[hidden] { display: none; }
+.vsl-erro p { max-width: 24ch; line-height: 1.35; }
+.vsl-erro button {
+  padding: 0.75em 1.4em; border: 0; border-radius: 999px; background: var(--yellow); color: var(--on-yellow);
+  font: 800 0.9rem/1 var(--display); text-transform: uppercase; cursor: pointer;
+}
+.vsl-erro button:hover { background: var(--yellow-hot); }
 .video-caption {
   margin-top: 18px; max-width: 46ch;
   font: 700 clamp(0.95rem, 0.85rem + 0.35vw, 1.1rem)/1.3 var(--display); font-stretch: 104%;
@@ -670,7 +716,9 @@ section h2 {
   .header-row { height: 64px; }
   .brand img { width: 38px; height: 38px; }
   .brand-word { font-size: 1.25rem; }
-  .hero h1 { font-size: clamp(2.05rem, 1.2rem + 4.6vw, 2.6rem); }
+  .hero h1 { font-size: clamp(2.05rem, 1.2rem + 4.6vw, 2.6rem); line-height: 1.12; }
+  /* "Inteligência Artificial" quebra em duas linhas no celular: sublinhado em cada linha, com folga da linha de baixo */
+  .hl-line { -webkit-box-decoration-break: clone; box-decoration-break: clone; padding-bottom: 0; background-position: 0 calc(100% - 0.1em); }
   .hero-perks { gap: 14px 12px; }
   .hero-perks li { font-size: 0.86rem; }
   .perk-ic { width: 34px; height: 34px; }
@@ -678,7 +726,7 @@ section h2 {
   .btn-lg { font-size: 0.95rem; letter-spacing: 0; padding-inline: 1.1em; }
   .hero-actions { gap: 10px; }
   .ticker li { padding: 13px 20px; font-size: 0.82rem; }
-  .play { left: 12px; bottom: 10px; padding: 5px 16px 5px 5px; gap: 10px; }
+  .play { padding: 5px 16px 5px 5px; gap: 10px; }
   .play-disc { width: 38px; height: 38px; }
   .play-label { font-size: 0.78rem; }
   .play-label small { display: none; }

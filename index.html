@@ -19,6 +19,8 @@
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
       <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13a.8.8 0 0 0 1.2.7l10.4-6.5a.8.8 0 0 0 0-1.4L9.2 4.8A.8.8 0 0 0 8 5.5z" fill="currentColor" stroke="none"/></symbol>
+      <symbol id="i-sound-on" viewBox="0 0 24 24"><path d="M4 9.5v5h3.5l4.5 4v-13l-4.5 4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18.2 6.4a8 8 0 0 1 0 11.2"/></symbol>
+      <symbol id="i-sound-off" viewBox="0 0 24 24"><path d="M4 9.5v5h3.5l4.5 4v-13l-4.5 4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></symbol>
       <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
       <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
       <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
@@ -97,16 +99,24 @@
         </div>
 
         <div class="hero-media" id="video">
-          <div class="video-frame" data-vsl>
+          <div class="video-frame" data-vsl data-estado="carregando" data-som="off">
             <img class="video-poster" src="assets/img/logo-mli-horizontal.jpg" alt="Arte do Método M.L.I.: carrinho de compras, cérebro de IA e gráfico em alta" width="1374" height="1145">
-            <video class="vsl-video" controls controlslist="nodownload" playsinline preload="none" aria-label="Apresentação do Método M.L.I., com Gustavo Mourão">
+            <video class="vsl-video" muted playsinline preload="metadata" disablepictureinpicture disableremoteplayback controlslist="nodownload noplaybackrate noremoteplayback" tabindex="-1" aria-label="Apresentação do Método M.L.I., com Gustavo Mourão">
               <source src="assets/video/vsl-720p.mp4" type="video/mp4">
-              Seu navegador não consegue reproduzir este vídeo.
             </video>
-            <button class="play" type="button" data-vsl-play aria-label="Reproduzir vídeo de apresentação, cerca de 16 minutos">
-              <span class="play-disc"><span class="play-ring" aria-hidden="true"></span><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg></span>
-              <span class="play-label">Assistir à apresentação <small>cerca de 16 min</small></span>
+            <button class="play" type="button" data-vsl-som aria-label="Ouvir o vídeo, com som">
+              <span class="play-disc"><span class="play-ring" aria-hidden="true"></span>
+                <svg class="ic ic-off" aria-hidden="true"><use href="#i-sound-off"/></svg>
+                <svg class="ic ic-on" aria-hidden="true"><use href="#i-sound-on"/></svg>
+                <svg class="ic ic-play" aria-hidden="true"><use href="#i-play"/></svg>
+              </span>
+              <span class="play-label"><span data-vsl-rotulo>Clique para ouvir</span> <small data-vsl-sub>O vídeo já começou, sem som</small></span>
             </button>
+            <div class="vsl-barra" aria-hidden="true"><i></i></div>
+            <div class="vsl-erro" role="alert" hidden>
+              <p>Não foi possível carregar o vídeo agora.</p>
+              <button type="button" data-vsl-tentar>Tentar de novo</button>
+            </div>
           </div>
           <p class="video-caption">Veja como eu comecei, o que eu fiz e o <strong>resultado real</strong> com o Mercado Livre e a IA.</p>
           <p class="video-sign"><strong>Gustavo Mourão</strong> · vendedor desde 2007</p>
@@ -529,6 +539,7 @@
 
   <div class="toast" role="status" aria-live="polite" data-toast></div>
 
+  <script src="js/vsl.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>
