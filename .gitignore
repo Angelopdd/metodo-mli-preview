@@ -1,0 +1,6 @@
+# Material de trabalho que nao vai para o repositorio publico
+assets/referencias/
+preview/
+.playwright-mcp/
+.impeccable/
+.claude/

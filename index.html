@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Método M.L.I. — Mercado Livre Inteligente</title>
+  <meta name="description" content="Aprenda a vender no Mercado Livre sem comprar um grande estoque antecipadamente, com fornecedores locais e anúncios profissionais feitos com Inteligência Artificial.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#070C1A">
+  <link rel="icon" href="assets/img/favicon.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Ícones (traço único, 2px) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13a.8.8 0 0 0 1.2.7l10.4-6.5a.8.8 0 0 0 0-1.4L9.2 4.8A.8.8 0 0 0 8 5.5z" fill="currentColor" stroke="none"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.6-3 8.5-7 10-4-1.5-7-5.4-7-10V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+      <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3L5 14h6l-1 7 8-11h-6z"/></symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 20l1.4-4.1A8 8 0 1 1 8.2 18.7z"/><path d="M9 10.5c.3 1.8 1.7 3.3 3.6 3.9l1.2-1.2 1.8.8"/></symbol>
+      <symbol id="i-store" viewBox="0 0 24 24"><path d="M3 9l1.6-5h14.8L21 9"/><path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/><path d="M5 12v8h14v-8M10 20v-5h4v5"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.4-7-12a7 7 0 0 1 14 0c0 5.6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></symbol>
+      <symbol id="i-ai" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2.5"/><path d="M9 2.5V6M15 2.5V6M9 18v3.5M15 18v3.5M2.5 9H6M2.5 15H6M18 9h3.5M18 15h3.5"/><path d="M12 9l.9 2.1 2.1.9-2.1.9L12 15l-.9-2.1L9 12l2.1-.9z"/></symbol>
+      <symbol id="i-cart" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.6 11.2a1 1 0 0 0 1 .8h9.3a1 1 0 0 0 1-.8L21 7H6"/></symbol>
+      <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 7.5l-9-4.5-9 4.5 9 4.5z"/><path d="M3 7.5v9l9 4.5 9-4.5v-9M12 12v9"/></symbol>
+      <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2.5 6h11v10h-11zM13.5 10h4l3 3.2V16h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.4-4.4"/></symbol>
+      <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3 12.2V4h8.2L21 13.8 13.8 21z"/><circle cx="7.6" cy="8.4" r="1.4"/></symbol>
+      <symbol id="i-camera" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M8.5 7l1.4-3h4.2l1.4 3"/><circle cx="12" cy="13.5" r="3.4"/></symbol>
+      <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 12.5h7M9 16.5h5"/></symbol>
+      <symbol id="i-table" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9.5h18M3 14.8h18M9 4v16"/></symbol>
+      <symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3.5 17.5l3 3 5.8-5.8a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.4-.4-2.4z"/></symbol>
+      <symbol id="i-video" viewBox="0 0 24 24"><rect x="2.5" y="6" width="13.5" height="12" rx="2.5"/><path d="M16 10.2l5.5-3.2v10l-5.5-3.2"/></symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20h17M6 20v-5M11 20v-9M16 20v-7M20 20V5"/></symbol>
+      <symbol id="i-nobox" viewBox="0 0 24 24"><path d="M21 7.5l-9-4.5-9 4.5 9 4.5z"/><path d="M3 7.5v9l9 4.5 9-4.5v-9"/><path d="M3 3l18 18"/></symbol>
+      <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2.5"/><circle cx="9" cy="9.5" r="1.8"/><path d="M21 15.5l-5-5L5 20"/></symbol>
+      <symbol id="i-megaphone" viewBox="0 0 24 24"><path d="M3 10v4h3l7 4.5V5.5L6 10z"/><path d="M17 9a4 4 0 0 1 0 6M7 14l1.3 5.5h2.4L10 15"/></symbol>
+    </defs>
+  </svg>
+
+  <div class="proto-ribbon" role="note">
+    <span class="dot" aria-hidden="true"></span>
+    <span>Protótipo para aprovação. Vídeo, foto oficial e comprovantes estão marcados como <strong>placeholder</strong>; os botões são demonstrativos.</span>
+  </div>
+
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="#inicio" aria-label="Método M.L.I., início">
+        <img src="assets/img/logo-mli-selo.jpg" alt="" width="44" height="44">
+        <span class="brand-word"><small>Método</small>M.L.I.</span>
+      </a>
+      <nav class="main-nav" aria-label="Seções">
+        <a href="#como-funciona">O método</a>
+        <a href="#resultado">Resultado</a>
+        <a href="#conteudo">Conteúdo</a>
+        <a href="#bonus">Bônus</a>
+        <a href="#duvidas">Dúvidas</a>
+      </nav>
+      <a class="btn btn-primary btn-sm" href="#oferta">Quero entrar <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+  </header>
+
+  <main id="inicio">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <h1>Venda no <span class="hl">Mercado Livre</span> sem montar um grande estoque, usando <span class="hl hl-line">Inteligência Artificial</span>.</h1>
+          <p class="lead">O Método M.L.I. mostra, passo a passo e na tela, como começar uma loja do zero: encontrar fornecedores locais, criar anúncios profissionais com IA e acompanhar a loja do dia zero ao dia 30, mesmo sem experiência em vendas.</p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" href="#oferta">Quero conhecer o método <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-ghost" href="#video" data-demo="video"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg> Assistir o vídeo</a>
+          </div>
+
+          <ul class="trust-row">
+            <li><svg class="ic" aria-hidden="true"><use href="#i-lock"/></svg>Pagamento seguro</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg>Acesso imediato</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg>7 dias de garantia</li>
+          </ul>
+
+          <ul class="hero-perks">
+            <li><span class="perk-ic"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg></span>Aulas passo a passo</li>
+            <li><span class="perk-ic"><svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg></span>Suporte pelo WhatsApp</li>
+            <li><span class="perk-ic"><svg class="ic" aria-hidden="true"><use href="#i-ai"/></svg></span>Ferramentas de IA na prática</li>
+            <li><span class="perk-ic"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg></span>Garantia de 7 dias</li>
+          </ul>
+        </div>
+
+        <div class="hero-media" id="video">
+          <div class="video-frame">
+            <img class="video-poster" src="assets/img/logo-mli-horizontal.jpg" alt="Arte do Método M.L.I.: carrinho de compras, cérebro de IA e gráfico em alta" width="1374" height="1145">
+            <span class="ph-tag">Placeholder · vídeo da VSL</span>
+            <button class="play" type="button" data-demo="video" aria-label="Reproduzir vídeo de apresentação, cerca de 16 minutos">
+              <span class="play-disc"><span class="play-ring" aria-hidden="true"></span><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg></span>
+              <span class="play-label">Assistir à apresentação <small>cerca de 16 min</small></span>
+            </button>
+          </div>
+          <p class="video-caption">Veja como eu comecei, o que eu fiz e o <strong>resultado real</strong> com o Mercado Livre e a IA.</p>
+          <p class="video-sign"><strong>Gustavo Mourão</strong> · vendedor desde 2007</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAIXA DE MARCA -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <ul>
+          <li><svg class="ic"><use href="#i-pin"/></svg>Fornecedores locais</li>
+          <li><svg class="ic"><use href="#i-ai"/></svg>Anúncios com IA</li>
+          <li><svg class="ic"><use href="#i-video"/></svg>Aulas na tela do computador</li>
+          <li><svg class="ic"><use href="#i-cart"/></svg>Do dia zero ao dia 30</li>
+          <li><svg class="ic"><use href="#i-chat"/></svg>Suporte pelo WhatsApp</li>
+          <li><svg class="ic"><use href="#i-shield"/></svg>Garantia de 7 dias</li>
+        </ul>
+        <ul>
+          <li><svg class="ic"><use href="#i-pin"/></svg>Fornecedores locais</li>
+          <li><svg class="ic"><use href="#i-ai"/></svg>Anúncios com IA</li>
+          <li><svg class="ic"><use href="#i-video"/></svg>Aulas na tela do computador</li>
+          <li><svg class="ic"><use href="#i-cart"/></svg>Do dia zero ao dia 30</li>
+          <li><svg class="ic"><use href="#i-chat"/></svg>Suporte pelo WhatsApp</li>
+          <li><svg class="ic"><use href="#i-shield"/></svg>Garantia de 7 dias</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- RESULTADO -->
+    <section class="result" id="resultado" aria-labelledby="result-title">
+      <div class="wrap result-grid">
+        <div class="result-copy">
+          <h2 id="result-title">R$ 3.732,73 de lucro líquido em 30 dias. <span class="hl">Com a conta inteira à mostra.</span></h2>
+          <p>Esta é a operação do próprio Gustavo: uma loja recém-criada, começando do zero, sem comprar um grande estoque antecipadamente e usando IA em todo o trabalho. A maioria das páginas mostra só o faturamento; aqui você vê também o que ficou no bolso.</p>
+          <p class="disclaimer">Resultado pessoal relatado pelo Gustavo Mourão. Cada loja pode ter resultados diferentes: isto <strong>não é promessa de ganho</strong> nem de dinheiro fácil para quem faz o curso.</p>
+          <figure class="ph ph-proof">
+            <svg class="ic" aria-hidden="true"><use href="#i-image"/></svg>
+            <figcaption><strong>Placeholder · comprovante</strong>Print real do painel de vendas do Mercado Livre (período de 30 dias), a ser enviado pelo Gustavo.</figcaption>
+          </figure>
+        </div>
+
+        <div class="ledger" data-ledger>
+          <div class="ledger-head">
+            <span>Resumo da operação</span>
+            <span class="ledger-period">30 dias</span>
+          </div>
+          <dl class="ledger-rows">
+            <div class="row">
+              <dt>Vendas no período <small>faturamento</small></dt>
+              <dd data-count="15545.51">R$ 15.545,51</dd>
+            </div>
+            <div class="row row-cost">
+              <dt>Custos e despesas <small>produtos, frete e tarifas</small></dt>
+              <dd>− <span data-count="11812.78">R$ 11.812,78</span></dd>
+            </div>
+            <div class="row row-total">
+              <dt>Lucro líquido</dt>
+              <dd data-count="3732.73">R$ 3.732,73</dd>
+            </div>
+          </dl>
+          <div class="split" aria-hidden="true">
+            <span class="split-cost"></span>
+            <span class="split-profit"></span>
+          </div>
+          <div class="split-legend">
+            <span><i class="sw sw-cost"></i>Custos · 76%</span>
+            <span><i class="sw sw-profit"></i>Margem de lucro · cerca de 24%</span>
+          </div>
+          <div class="ledger-alt">
+            <p><strong>49,23%</strong></p>
+            <p>é o outro indicador que o Gustavo acompanha: o lucro líquido comparado com o custo dos produtos no fornecedor. A margem de 24% compara o lucro com o faturamento.</p>
+          </div>
+          <p class="ledger-foot">Fonte: VSL do Gustavo Mourão, que mostra o registro no próprio site do Mercado Livre. Valores serão conferidos com o print do painel antes da publicação.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section class="how" id="como-funciona" aria-labelledby="how-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="how-title">Fornecedor perto, anúncio com IA, <span class="hl">sem estoque grande parado.</span></h2>
+          <p>O M.L.I. junta três peças: fornecedores confiáveis da sua região, anúncios profissionais criados com Inteligência Artificial e o Mercado Livre como vitrine. A ideia é trabalhar com produtos que já estão disponíveis no fornecedor, sem comprar grandes quantidades antes de vender.</p>
+        </div>
+
+        <ol class="track">
+          <li class="step">
+            <span class="step-node"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg></span>
+            <span class="step-n">1</span>
+            <h3>Fornecedor local</h3>
+            <p>Você pesquisa, valida o nicho e negocia com fornecedores da sua cidade ou região que tenham bons produtos e cumpram prazos.</p>
+          </li>
+          <li class="step">
+            <span class="step-node"><svg class="ic" aria-hidden="true"><use href="#i-ai"/></svg></span>
+            <span class="step-n">2</span>
+            <h3>Anúncio com IA</h3>
+            <p>Fotos tratadas, imagem de capa, efeito lupa nas características, título e descrição, com ferramentas de IA gratuitas.</p>
+          </li>
+          <li class="step">
+            <span class="step-node"><svg class="ic" aria-hidden="true"><use href="#i-store"/></svg></span>
+            <span class="step-n">3</span>
+            <h3>Venda no Mercado Livre</h3>
+            <p>Cadastro com preço validado, página da loja configurada, promoções e cupons.</p>
+          </li>
+          <li class="step">
+            <span class="step-node"><svg class="ic" aria-hidden="true"><use href="#i-truck"/></svg></span>
+            <span class="step-n">4</span>
+            <h3>Pedido, etiqueta e envio</h3>
+            <p>Chegou a venda: você encontra o pedido, gera e imprime a etiqueta, embala o produto e envia.</p>
+          </li>
+        </ol>
+
+        <p class="how-note"><svg class="ic" aria-hidden="true"><use href="#i-tag"/></svg><span><strong>Como o próprio Gustavo avisa, trabalhar sem comprar estoque antecipadamente não significa começar sem custos ou sem riscos.</strong> Há o custo dos produtos, as taxas, o frete, o capital de giro e possíveis devoluções. <a href="#duvidas">Veja os custos nas dúvidas</a>.</span></p>
+      </div>
+    </section>
+
+    <!-- 5 ERROS -->
+    <section class="errors" aria-labelledby="errors-title">
+      <div class="wrap errors-grid">
+        <div class="errors-head">
+          <h2 id="errors-title">5 erros de quem está começando a vender no Mercado Livre</h2>
+          <p>O método foi montado para você não pagar caro por eles.</p>
+        </div>
+        <ol class="error-list">
+          <li><span class="err-n">1</span><div><h3>Não fazer pesquisa</h3><p>Escolher produtos sem analisar a demanda e a concorrência.</p></div><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg></li>
+          <li><span class="err-n">2</span><div><h3>Precificar errado</h3><p>Preço alto afasta clientes. Preço baixo demais vira prejuízo.</p></div><svg class="ic" aria-hidden="true"><use href="#i-tag"/></svg></li>
+          <li><span class="err-n">3</span><div><h3>Usar fotos de baixa qualidade</h3><p>Foto ruim passa desconfiança e reduz as chances de venda.</p></div><svg class="ic" aria-hidden="true"><use href="#i-camera"/></svg></li>
+          <li><span class="err-n">4</span><div><h3>Fazer anúncios sem informação</h3><p>Quanto mais completo e claro, maior a confiança do comprador.</p></div><svg class="ic" aria-hidden="true"><use href="#i-doc"/></svg></li>
+          <li><span class="err-n">5</span><div><h3>Ignorar o pós-venda</h3><p>Bom atendimento gera avaliações positivas e mais vendas no futuro.</p></div><svg class="ic" aria-hidden="true"><use href="#i-truck"/></svg></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- GUSTAVO -->
+    <section class="about" id="gustavo" aria-labelledby="about-title">
+      <div class="wrap about-grid">
+        <figure class="portrait">
+          <img src="assets/img/gustavo-provisoria.jpg" alt="Gustavo Mourão" width="330" height="440">
+          <figcaption class="ph-tag">Foto provisória · substituir pela oficial</figcaption>
+        </figure>
+        <div class="about-copy">
+          <h2 id="about-title">Prazer, eu sou o <span class="hl">Gustavo Mourão</span>.</h2>
+          <p>Trabalho com vendas desde 2007. São quase 20 anos em segmentos como pet, saúde, varejo e atacado, lidando com produtos, fornecedores, negociação, atendimento, marketing digital e edição de imagens e vídeos.</p>
+          <p>Antes do M.L.I., já vendia por dropshipping no próprio Mercado Livre, com volume alto e margem horrível. Foi aí que aprendi: faturamento alto não significa, necessariamente, um bom negócio. Hoje junto essa experiência com a Inteligência Artificial e ensino o caminho que percorri na minha loja.</p>
+          <dl class="facts">
+            <div><dt>Em vendas desde</dt><dd>2007</dd></div>
+            <div><dt>Segmentos</dt><dd>Pet, saúde, varejo e atacado</dd></div>
+            <div><dt>Especialidade</dt><dd>Fornecedores e negociação</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTEÚDO -->
+    <section class="modules" id="conteudo" aria-labelledby="modules-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="modules-title">O que você vai aprender, <span class="hl">módulo por módulo</span></h2>
+          <p>Você acompanha a loja do dia zero ao dia 30, com o Gustavo mostrando a própria tela: entender a plataforma, achar fornecedor, montar a marca, criar o anúncio, cadastrar, acompanhar e anunciar.</p>
+        </div>
+
+        <div class="mod-shell" data-tabs>
+          <div class="mod-tabs" role="tablist" aria-label="Módulos do curso">
+            <button role="tab" id="tab-1" aria-controls="mod-1" aria-selected="true"><span>Módulo 1</span>Entendendo o Mercado Livre</button>
+            <button role="tab" id="tab-2" aria-controls="mod-2" aria-selected="false" tabindex="-1"><span>Módulo 2</span>Fornecedores locais</button>
+            <button role="tab" id="tab-3" aria-controls="mod-3" aria-selected="false" tabindex="-1"><span>Módulo 3</span>Identidade visual</button>
+            <button role="tab" id="tab-4" aria-controls="mod-4" aria-selected="false" tabindex="-1"><span>Módulo 4</span>Anúncios profissionais</button>
+            <button role="tab" id="tab-5" aria-controls="mod-5" aria-selected="false" tabindex="-1"><span>Módulo 5</span>Cadastro de anúncios</button>
+            <button role="tab" id="tab-6" aria-controls="mod-6" aria-selected="false" tabindex="-1"><span>Módulo 6</span>30 dias e Mercado Ads</button>
+          </div>
+
+          <div class="mod-panels">
+            <article class="mod-panel" role="tabpanel" id="mod-1" aria-labelledby="tab-1">
+              <header><svg class="ic" aria-hidden="true"><use href="#i-store"/></svg><div><span>Módulo 1</span><h3>Entendendo o Mercado Livre</h3></div></header>
+              <ol class="lessons">
+                <li>Análise completa do site do Mercado Livre</li>
+                <li>Tipos de entrega</li>
+                <li>Tipos de anúncios</li>
+                <li>Tipos de frete</li>
+                <li>Reputação</li>
+                <li>Bloqueios e restrições de conta</li>
+              </ol>
+            </article>
+            <article class="mod-panel" role="tabpanel" id="mod-2" aria-labelledby="tab-2">
+              <header><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg><div><span>Módulo 2</span><h3>Fornecedores locais</h3></div></header>
+              <ol class="lessons">
+                <li>Tipos de nichos</li>
+                <li>Pesquisa de fornecedores locais, parte 1</li>
+                <li>Pesquisa de fornecedores locais, parte 2</li>
+                <li>Validação de nicho</li>
+                <li>Captação de fornecedores locais</li>
+                <li>Abordagem de fornecedores</li>
+                <li>Negociação com fornecedores</li>
+                <li class="is-bonus">Resultado da captação de fornecedor</li>
+              </ol>
+            </article>
+            <article class="mod-panel" role="tabpanel" id="mod-3" aria-labelledby="tab-3">
+              <header><svg class="ic" aria-hidden="true"><use href="#i-image"/></svg><div><span>Módulo 3</span><h3>Identidade visual</h3></div></header>
+              <ol class="lessons">
+                <li>Nome da loja</li>
+                <li>Logo da loja</li>
+                <li>Banner da página</li>
+              </ol>
+            </article>
+            <article class="mod-panel" role="tabpanel" id="mod-4" aria-labelledby="tab-4">
+              <header><svg class="ic" aria-hidden="true"><use href="#i-camera"/></svg><div><span>Módulo 4</span><h3>Criação de anúncios profissionais</h3></div></header>
+              <p class="mod-intro">Imagens, títulos e descrições criados com IA, usando ferramentas gratuitas e sempre respeitando a aparência real do produto.</p>
+              <ol class="lessons">
+                <li>Fotos e preparação das imagens</li>
+                <li>Criação das imagens do anúncio</li>
+                <li>Criação das imagens das variações do produto</li>
+                <li>Criação da imagem descritiva do anúncio</li>
+                <li>Título e descrição profissional do anúncio</li>
+                <li class="is-bonus">Resultado das criações</li>
+                <li class="is-bonus">Aulão: clipe de vídeo para o anúncio</li>
+              </ol>
+            </article>
+            <article class="mod-panel" role="tabpanel" id="mod-5" aria-labelledby="tab-5">
+              <header><svg class="ic" aria-hidden="true"><use href="#i-doc"/></svg><div><span>Módulo 5</span><h3>Cadastro de anúncios</h3></div></header>
+              <ol class="lessons">
+                <li>Precificação</li>
+                <li>Cadastro de produto, parte 1</li>
+                <li>Cadastro de produto, parte 2</li>
+                <li>Validação de precificação</li>
+                <li>Criação da página da loja</li>
+                <li>Programa DECOLA</li>
+                <li>Cadastro de promoções e cupons</li>
+              </ol>
+            </article>
+            <article class="mod-panel" role="tabpanel" id="mod-6" aria-labelledby="tab-6">
+              <header><svg class="ic" aria-hidden="true"><use href="#i-megaphone"/></svg><div><span>Módulo 6</span><h3>Primeiros 30 dias e Mercado Ads</h3></div></header>
+              <p class="mod-intro">Acompanhamento da loja semana a semana, da primeira venda ao fim dos 30 dias: números, vendas e métricas. E a primeira campanha de Mercado Ads, com cuidado no investimento, porque anunciar envolve custos.</p>
+              <ol class="lessons">
+                <li>Configuração da primeira campanha</li>
+                <li>Escolha de produtos</li>
+                <li>Definição de orçamento</li>
+                <li>Análise de resultados: ACOS, cliques e conversões</li>
+                <li>Ajustes e otimizações semanais</li>
+                <li>Estratégias para escalar e vender mais</li>
+              </ol>
+            </article>
+          </div>
+        </div>
+        <p class="mod-close"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Para fechar o treinamento:</strong> dicas e cuidados para quem está começando, baseados na experiência do Gustavo em vendas, negociação, marketing e no próprio Mercado Livre.</span></p>
+      </div>
+    </section>
+
+    <!-- BÔNUS -->
+    <section class="bonus" id="bonus" aria-labelledby="bonus-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="bonus-title">Além das aulas, <span class="hl">você não fica sozinho</span></h2>
+        </div>
+
+        <div class="bento">
+          <article class="tile tile-support">
+            <div class="tile-top"><span class="tile-ic"><svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg></span><span class="tile-kind">Incluso</span></div>
+            <h3>Suporte pelo WhatsApp e análise da sua loja</h3>
+            <p>Tire dúvidas sobre o conteúdo do treinamento pelo WhatsApp. Quando você montar a loja e cadastrar os primeiros 10 produtos, pode enviá-la para uma análise feita pelo próprio Gustavo: apresentação, anúncios e oportunidades de melhoria.</p>
+            <ol class="mini-flow">
+              <li><b>10</b><span>produtos cadastrados</span></li>
+              <li><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></li>
+              <li><b><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg></b><span>análise feita pelo Gustavo</span></li>
+              <li><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></li>
+              <li><b><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></b><span>orientações práticas</span></li>
+            </ol>
+          </article>
+
+          <article class="tile tile-sheet">
+            <div class="tile-top"><span class="tile-ic"><svg class="ic" aria-hidden="true"><use href="#i-table"/></svg></span><span class="tile-kind">Incluso</span></div>
+            <h3>Planilha de controle de vendas e lucro</h3>
+            <p>Registre o valor das vendas, o custo dos produtos, as taxas e outras despesas, e calcule o lucro líquido da operação.</p>
+            <div class="sheet" aria-hidden="true">
+              <div class="sheet-row sheet-h"><span>Venda</span><span>Custo</span><span>Taxas</span><span>Despesas</span><span>Lucro</span></div>
+              <div class="sheet-row"><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="sheet-row"><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="sheet-row"><span></span><span></span><span></span><span></span><span></span></div>
+            </div>
+          </article>
+
+          <article class="tile tile-diy">
+            <div class="tile-top"><span class="tile-ic"><svg class="ic" aria-hidden="true"><use href="#i-tool"/></svg></span><span class="tile-kind">Bônus</span></div>
+            <h3>Faça Você Mesmo (DIY)</h3>
+            <p>Ideias e dicas de produtos que você mesmo pode produzir e vender. Uma alternativa para quem prefere não trabalhar com fornecedores locais.</p>
+          </article>
+
+          <article class="tile tile-video">
+            <div class="tile-top"><span class="tile-ic"><svg class="ic" aria-hidden="true"><use href="#i-video"/></svg></span><span class="tile-kind">Bônus</span></div>
+            <h3>Aulão de edição de vídeo para os clips do Mercado Livre</h3>
+            <p>Como fazer um clipe para o seu anúncio de maneira profissional e prática, no computador e no celular.</p>
+          </article>
+
+          <article class="tile tile-first">
+            <div class="tile-top"><span class="tile-ic"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg></span><span class="tile-kind">Módulo bônus</span></div>
+            <div class="first-grid">
+              <div>
+                <h3>Primeira venda: e agora?</h3>
+                <p>Onde encontrar o pedido, como preparar o envio, gerar, baixar e imprimir a etiqueta e qual embalagem usar para cada tipo de produto.</p>
+              </div>
+              <ol class="mini-flow first-flow">
+                <li><b><svg class="ic" aria-hidden="true"><use href="#i-cart"/></svg></b><span>pedido</span></li>
+                <li><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></li>
+                <li><b><svg class="ic" aria-hidden="true"><use href="#i-tag"/></svg></b><span>etiqueta</span></li>
+                <li><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></li>
+                <li><b><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg></b><span>embalagem</span></li>
+                <li><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></li>
+                <li><b><svg class="ic" aria-hidden="true"><use href="#i-truck"/></svg></b><span>envio</span></li>
+              </ol>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DÚVIDAS -->
+    <section class="faq" id="duvidas" aria-labelledby="faq-title">
+      <div class="wrap faq-grid">
+        <div class="faq-head">
+          <h2 id="faq-title">Perguntas mais comuns</h2>
+          <p>Custos, estoque, riscos e garantia, sem letra miúda.</p>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>O curso é indicado para iniciantes?<svg class="ic" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+            <p>Sim, foi pensado justamente para quem está começando. Mas não é só para iniciantes: se você já tem loja no Mercado Livre e não está vendo os resultados que esperava, o método ajuda a revisar estratégia, anúncios, preços e fornecedores.</p>
+          </details>
+          <details>
+            <summary>Preciso ter experiência ou saber usar IA?<svg class="ic" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+            <p>Não. Você não precisa ter loja pronta, dominar a Inteligência Artificial nem ter experiência em vendas. O processo é explicado de maneira simples, com exemplos e demonstrações na tela.</p>
+          </details>
+          <details>
+            <summary>Funciona mesmo sem estoque?<svg class="ic" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+            <p>A proposta é vender sem comprar um grande estoque antecipadamente, trabalhando com produtos que já estão disponíveis em fornecedores da sua região. Isso não significa começar sem custos ou sem riscos. Veja a pergunta abaixo.</p>
+          </details>
+          <details>
+            <summary>Quais custos existem além do curso?<svg class="ic" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+            <p>O custo dos produtos no fornecedor, as taxas do Mercado Livre, o frete, possíveis devoluções e, se você anunciar, o investimento em Mercado Ads. Também não confunda faturamento com dinheiro disponível na conta: é preciso capital de giro para continuar comprando produtos enquanto aguarda o recebimento das vendas. No mês relatado pelo Gustavo, custos e despesas somaram R$ 11.812,78 sobre R$ 15.545,51 em vendas.</p>
+          </details>
+          <details>
+            <summary>Em quanto tempo vou ter resultado?<svg class="ic" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+            <p>Não existe prazo garantido, e cada loja pode ter resultados diferentes. Depende do nicho, dos fornecedores, da qualidade dos anúncios e da sua dedicação. O resultado de 30 dias desta página é do Gustavo e não deve ser lido como meta ou promessa.</p>
+          </details>
+          <details>
+            <summary>Existem riscos?<svg class="ic" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+            <p>Sim, como em qualquer negócio. Fornecedor pouco confiável ou sem o produto disponível, preço mal calculado, devoluções e problemas de reputação ou bloqueio de conta. E a IA não garante vendas: ela ajuda muito, mas o trabalho e as decisões continuam sendo seus. Por isso o curso tem aulas de fornecedores, precificação, reputação e bloqueios.</p>
+          </details>
+          <details>
+            <summary>As aulas são com um avatar de IA?<svg class="ic" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+            <p>Não. O vídeo de apresentação foi feito com um avatar que o Gustavo criou a partir da própria imagem, justamente para mostrar o que a IA consegue fazer. Nas aulas é ele mesmo, mostrando a tela e explicando cada etapa.</p>
+          </details>
+          <details>
+            <summary>Terei suporte durante o curso?<svg class="ic" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+            <p>Sim. O suporte é pelo WhatsApp, para dúvidas sobre o conteúdo do treinamento. E, depois que você cadastrar os primeiros 10 produtos, pode enviar sua loja para uma análise feita pelo Gustavo.</p>
+          </details>
+          <details>
+            <summary>Tem garantia?<svg class="ic" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+            <p>Sim, 7 dias. Se nesse prazo você decidir que o treinamento não é para você, solicite o reembolso. O compromisso do Gustavo é providenciar a devolução no mesmo dia em que receber o seu pedido.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFERTA -->
+    <section class="offer" id="oferta" aria-labelledby="offer-title">
+      <div class="wrap">
+        <div class="offer-card">
+          <div class="offer-copy">
+            <img class="offer-seal" src="assets/img/logo-mli-selo.jpg" alt="" width="96" height="96" loading="lazy">
+            <h2 id="offer-title">Garanta sua vaga no <span class="hl">Método M.L.I.</span></h2>
+            <ul class="included">
+              <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>6 módulos, do básico do Mercado Livre à primeira campanha de Mercado Ads</li>
+              <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Acompanhamento da loja semana a semana, do dia zero ao dia 30</li>
+              <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Suporte pelo WhatsApp</li>
+              <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Análise da sua loja feita pelo Gustavo após 10 produtos cadastrados</li>
+              <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Planilha de vendas e lucro líquido</li>
+              <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Bônus: primeira venda, Faça Você Mesmo (DIY) e aulão de vídeo</li>
+            </ul>
+          </div>
+
+          <div class="price-box">
+            <p class="price-from">De <s>R$ 497,00</s> por</p>
+            <p class="price"><span class="cur">R$</span><span class="int">197</span><span class="cents">,00</span></p>
+            <a class="btn btn-primary btn-lg btn-block" href="#oferta" data-demo="checkout">Quero minha vaga agora <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <ul class="trust-row trust-tight">
+              <li><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg>Acesso imediato</li>
+              <li><svg class="ic" aria-hidden="true"><use href="#i-lock"/></svg>Pagamento seguro</li>
+            </ul>
+            <div class="guarantee">
+              <svg class="seal7" viewBox="0 0 120 120" aria-hidden="true">
+                <defs><path id="seal-path" d="M60 60m-44 0a44 44 0 1 1 88 0a44 44 0 1 1-88 0"/></defs>
+                <circle cx="60" cy="60" r="56" class="s-ring"/>
+                <circle cx="60" cy="60" r="34" class="s-core"/>
+                <text class="s-text"><textPath href="#seal-path" startOffset="0" textLength="268" lengthAdjust="spacing">GARANTIA DE 7 DIAS · MÉTODO M.L.I. ·</textPath></text>
+                <text x="60" y="64" text-anchor="middle" class="s-num">7</text>
+                <text x="60" y="80" text-anchor="middle" class="s-days">DIAS</text>
+              </svg>
+              <p><strong>Garantia de 7 dias.</strong> Decidiu que não é para você? Peça o reembolso no prazo e a devolução é providenciada no mesmo dia do pedido.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-row">
+      <a class="brand" href="#inicio" aria-label="Voltar ao início">
+        <img src="assets/img/logo-mli-selo.jpg" alt="" width="36" height="36" loading="lazy">
+        <span class="brand-word"><small>Método</small>M.L.I.</span>
+      </a>
+      <p>Método M.L.I. — Mercado Livre Inteligente. Este curso não tem vínculo com o Mercado Livre. Os resultados mostrados são do Gustavo Mourão e variam de pessoa para pessoa.</p>
+    </div>
+  </footer>
+
+  <div class="sticky-cta" data-sticky aria-hidden="true">
+    <p><s>R$ 497</s> <strong>R$ 197,00</strong></p>
+    <a class="btn btn-primary btn-sm" href="#oferta" tabindex="-1">Quero minha vaga</a>
+  </div>
+
+  <div class="toast" role="status" aria-live="polite" data-toast></div>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
